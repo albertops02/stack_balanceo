@@ -5,7 +5,7 @@ services:
        context: ./
        dockerfile: Dockerfile-Apache1
       expose:
-        - 80
+        - 85
       container_name: apache1
 
    apache2:
@@ -13,7 +13,7 @@ services:
        context: ./
        dockerfile: Dockerfile-Apache2
       expose:
-        - 80
+        - 85
       container_name: apache2
   
    haproxy:
@@ -21,7 +21,7 @@ services:
       volumes:
          - ./:/usr/local/etc/haproxy:ro
       ports:
-         - "80:80"
+         - "85:85"
          - "8404:8404"
       depends_on:
          - apache1
